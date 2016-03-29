@@ -57,7 +57,8 @@ window.onload = function(){
     	
     	mouseX1 = mouseX;
         mouseY1 = mouseY;
-    	
+    	/* canvasの直前の状態を保持しておく。 */
+        undoImage = ctx.getImageData(0, 0,canvas.width,canvas.height);
     });
     /* クリックを離したら、描画を終了する */
     canvas.addEventListener("mouseup", function(e){
@@ -97,6 +98,11 @@ window.onload = function(){
         }
         e.preventDefault();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+    
+    /* 戻るボタン */
+    $('#undo').click(function(e) {
+        ctx.putImageData(undoImage,0,0);
     });
 };
 </script>
@@ -146,6 +152,7 @@ li {
         </div>
         
         <div id="item2">
+        	<p><button style="width:120px;" id="undo">１つ前の状態に戻す</button></p>
             <p><button style="width:120px;" id="clear">消去</button></p>
         </div>
     </div>
