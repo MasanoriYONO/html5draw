@@ -65,6 +65,19 @@ window.onload = function(){
     	draw = false;
     	console.log("draw:" + draw);
     });
+	
+	/* 線の太さの値を変える */
+    var lineWidth = document.getElementById("lineWidth");
+    lineWidth.addEventListener("mousemove",function(){  
+        var lineNum = lineWidth.value;
+        document.getElementById("lineNum").innerHTML = lineNum;
+    });
+    /* 透明度の値を変える */
+    var alpha = document.getElementById("alpha");
+    alpha.addEventListener("mousemove",function(){  
+        var alphaNum = alpha.value;
+        document.getElementById("alphaNum").innerHTML = alphaNum;
+    });
 };
 </script>
 <style>
