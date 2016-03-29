@@ -30,6 +30,15 @@ window.onload = function(){
     	/* クリック状態なら描画をする */
         if(draw === true) {
             console.log("draw:" + draw);
+            
+            ctx.beginPath();
+            ctx.moveTo(mouseX1,mouseY1);
+            ctx.lineTo(mouseX,mouseY);
+            ctx.lineCap = "round";
+            ctx.stroke();
+            /* 直前の座標を保持しておく。*/
+            mouseX1 = mouseX;
+            mouseY1 = mouseY;
         }
     });
   
@@ -41,6 +50,9 @@ window.onload = function(){
     	
     	draw = true;
     	console.log("draw:" + draw);
+    	
+    	mouseX1 = mouseX;
+        mouseY1 = mouseY;
     	
     });
     /* クリックを離したら、描画を終了する */
