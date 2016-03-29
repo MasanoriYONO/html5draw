@@ -82,6 +82,13 @@ window.onload = function(){
         var alphaNum = alpha.value;
         document.getElementById("alphaNum").innerHTML = alphaNum;
     });
+    
+    /* 色を選択 */
+    $('li').click(function() {
+        ctx.strokeStyle = $(this).css('background-color');
+        $('ul > li').css('padding','0px');
+        $(this).css('padding','3px');
+    });
 };
 </script>
 <style>
