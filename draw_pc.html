@@ -5,6 +5,26 @@
 <script>
 window.onload = function(){
 	console.log("init.");
+	/* canvasの読み込み設定。 */
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");    
+    
+    var draw = false;
+    
+    /* マウスの座標を取得する */
+    canvas.addEventListener("mousemove",function(e) {
+    	console.log("mousemove.");
+    });
+  
+    /* クリックしたら描画をOKの状態にする */
+    canvas.addEventListener("mousedown",function(e) {
+    	console.log("mousedown.");
+    });
+    /* クリックを離したら、描画を終了する */
+    canvas.addEventListener("mouseup", function(e){
+	    console.log("mouseup.");
+	    
+    });
 };
 </script>
 <style>
