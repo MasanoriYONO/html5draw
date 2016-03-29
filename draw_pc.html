@@ -106,6 +106,37 @@ window.onload = function(){
     $('#undo').click(function(e) {
         ctx.putImageData(undoImage,0,0);
     });
+    
+    //saveボタンを配置
+    $('#save').click(function(e) {
+    	var m = moment();
+    	ctx.font= '20px Century Gothic';
+		ctx.fillStyle = '#888888';
+		ctx.fillText(m.format("YYYY-MM-DD HH:mm:ss"),10,30);
+				
+        var url = canvas.toDataURL();
+		var base64data = url.split(',')[1];
+		var array = b64utils.decode( base64data );
+		
+		navigator.webkitPersistentStorage.requestQuota(1024*1024*5, function(bytes) {
+			window.webkitRequestFileSystem(window.PERSISTENT, bytes, function(fs) {
+			   fs.root.getFile('image.png', {create: true}, function(fileEntry) {
+
+				   fileEntry.createWriter(function(fileWriter) {
+					   fileWriter.onwriteend = function(e) {
+						   console.log('書き込み完了');
+					   };
+	
+					   fileWriter.onerror = function(e) {
+						   console.log('書き込みエラー: ' + e.toString());
+					   };
+					   var blobData = new Blob([array]);
+					   fileWriter.write(blobData);
+				   });
+			   });
+		   });
+		});
+    });
 };
 </script>
 <style>
