@@ -14,16 +14,34 @@ window.onload = function(){
     /* マウスの座標を取得する */
     canvas.addEventListener("mousemove",function(e) {
     	console.log("mousemove.");
+    	
+    	var rect = e.target.getBoundingClientRect();
+		console.log("rect.left:" + rect.left);
+    	console.log("rect.top:" + rect.top);
+    	console.log("e.clientX:" + e.clientX);
+    	console.log("e.clientY:" + e.clientY);
+    	
+    	/* canvasの中での座標。左上が原点。*/
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+		console.log("mouseX:" + mouseX);
+    	console.log("mouseY:" + mouseY);
+    	
     });
   
     /* クリックしたら描画をOKの状態にする */
     canvas.addEventListener("mousedown",function(e) {
     	console.log("mousedown.");
+    	console.log("mouseX:" + mouseX);
+    	console.log("mouseY:" + mouseY);
+    	
     });
     /* クリックを離したら、描画を終了する */
     canvas.addEventListener("mouseup", function(e){
 	    console.log("mouseup.");
 	    
+	    console.log("mouseX:" + mouseX);
+    	console.log("mouseY:" + mouseY);
     });
 };
 </script>
