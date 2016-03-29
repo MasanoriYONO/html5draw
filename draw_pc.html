@@ -15,6 +15,9 @@ window.onload = function(){
     canvas.addEventListener("mousemove",function(e) {
     	console.log("mousemove.");
     	
+    	ctx.lineWidth = document.getElementById("lineWidth").value;
+        ctx.globalAlpha = document.getElementById("alpha").value/100;
+        
     	var rect = e.target.getBoundingClientRect();
 		console.log("rect.left:" + rect.left);
     	console.log("rect.top:" + rect.top);
