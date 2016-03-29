@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+<script src="./b64utils.js"></script>
 <script>
 window.onload = function(){
 	console.log("init.");
@@ -154,6 +156,7 @@ li {
         <div id="item2">
         	<p><button style="width:120px;" id="undo">１つ前の状態に戻す</button></p>
             <p><button style="width:120px;" id="clear">消去</button></p>
+            <p><button style="width:120px;" id="save">保存</button></p>
         </div>
     </div>
     
