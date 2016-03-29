@@ -27,6 +27,10 @@ window.onload = function(){
 		console.log("mouseX:" + mouseX);
     	console.log("mouseY:" + mouseY);
     	
+    	/* クリック状態なら描画をする */
+        if(draw === true) {
+            console.log("draw:" + draw);
+        }
     });
   
     /* クリックしたら描画をOKの状態にする */
@@ -35,6 +39,9 @@ window.onload = function(){
     	console.log("mouseX:" + mouseX);
     	console.log("mouseY:" + mouseY);
     	
+    	draw = true;
+    	console.log("draw:" + draw);
+    	
     });
     /* クリックを離したら、描画を終了する */
     canvas.addEventListener("mouseup", function(e){
@@ -42,6 +49,9 @@ window.onload = function(){
 	    
 	    console.log("mouseX:" + mouseX);
     	console.log("mouseY:" + mouseY);
+    	
+    	draw = false;
+    	console.log("draw:" + draw);
     });
 };
 </script>
